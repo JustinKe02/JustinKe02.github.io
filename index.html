@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="唐轲的具身智能、VLA 策略训练、机器人推理部署与计算机视觉个人作品集。">
+  <title>唐轲｜具身智能 / VLA 算法工程师</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-name" href="#top">唐轲 / TANG KE</a>
+      <nav aria-label="主导航">
+        <a href="#internship">实习</a>
+        <a href="#projects">项目</a>
+        <a href="#publications">论文</a>
+        <a href="#education">教育</a>
+        <a href="#skills">技能</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="top">
+    <section class="profile" aria-labelledby="profile-name">
+      <img class="profile-avatar" src="./portfolio-avatar.jpg" alt="唐轲的非真人插画头像" width="120" height="120">
+      <div class="profile-content">
+        <p class="eyebrow">ACADEMIC PORTFOLIO</p>
+        <h1 id="profile-name">唐轲</h1>
+        <p class="identity">东南大学 · 机械工程硕士（保研）</p>
+        <p class="research">研究方向：具身智能、VLA 策略训练与机器人推理部署</p>
+        <div class="profile-links" aria-label="联系方式">
+          <a href="tel:18381552411">电话：183 8155 2411</a>
+          <a href="mailto:tangknet02@163.com">tangknet02@163.com</a>
+          <a href="https://github.com/JustinKe02" target="_blank" rel="noreferrer">github.com/JustinKe02 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="education">
+      <h2 class="section-title" id="education">教育经历</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>时间</th><th>学校</th><th>专业</th><th>学位</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2024.09 — 至今</td>
+              <td><strong>东南大学</strong><small>985 / 双一流</small></td>
+              <td>机械工程</td>
+              <td>硕士 · 保研</td>
+            </tr>
+            <tr>
+              <td>2020.09 — 2024.06</td>
+              <td><strong>宁夏大学</strong><small>211 / 双一流</small></td>
+              <td>机械工程（智能制造）</td>
+              <td>本科</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="education-note"><strong>荣誉与证书：</strong>国家励志奖学金、一等奖学金、校级“三好学生”、东南大学“学术创新先进个人”；CET-4、CET-6（523 分）。</p>
+    </section>
+
+    <section aria-labelledby="internship">
+      <h2 class="section-title" id="internship">实习经历</h2>
+      <div class="experience-list">
+        <article class="experience">
+          <div class="experience-heading">
+            <div>
+              <h3>上海仙工智能科技有限公司</h3>
+              <p>人形机器人实习生 · 上海</p>
+            </div>
+            <time>2026.07 — 2026.08</time>
+          </div>
+          <div class="work-block">
+            <h4>基于 SRC5000 双臂机器人的 PI0.5 / GR00T 训练与分布式推理部署</h4>
+            <ul class="detail-list">
+              <li><strong>训练流程：</strong>参与双臂机器人数据采集、末端位姿数据处理、模型训练与权重评测；采用多卡 GPU DDP 与 DeepSpeed ZeRO-3 完成 PI0.5 和 GR00T 分布式训练，并根据部署配置完成 RTC 相关训练适配。</li>
+              <li><strong>推理架构：</strong>将模型部署于 4090 服务器端，以双臂末端位置与姿态作为模型交互信息。机器人端发送观测并接收模型输出，通过 IK 与 WBC 将末端目标解算为各关节控制指令，实现 Action Chunk 异步执行。</li>
+              <li><strong>推理优化：</strong>实现 RTC 动作融合、推理延迟补偿和过期动作丢弃，并结合 Torch Compile / Triton 优化，将模型延迟从 <strong>131.18 ms</strong> 降至 <strong>81.79 ms</strong>，降低 <strong>49.39 ms</strong>。</li>
+            </ul>
+            <div class="video-placeholder" aria-label="SRC5000 演示视频待添加">
+              <span class="play">▶</span><div><strong>SRC5000 双臂机器人训练与推理演示</strong><span>视频将在后续添加</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="experience">
+          <div class="experience-heading">
+            <div>
+              <h3>江苏金旺智能科技有限公司</h3>
+              <p>人形机器人实习生 · 常州</p>
+            </div>
+            <time>2026.05 — 2026.07</time>
+          </div>
+          <div class="work-block">
+            <h4>自研双臂机器人遥操数据采集与 PI0.5 策略训练推理</h4>
+            <ul class="detail-list">
+              <li><strong>数据采集：</strong>使用 ZMQ 传输三路相机 JPEG 帧、帧序号和采集时间戳；x86 端以机器人状态接收时刻为基准匹配时间最近的相机帧，时间差超限即停止录制。按指定 Episode 和帧率读取数据集动作，并通过 UDP 逐条回放至机器人。</li>
+              <li><strong>训练 RTC：</strong>在 PI0.5 训练中模拟动作队列未执行完便触发下一次推理的场景，将队列剩余动作作为前缀输入，仅训练模型生成后续动作，使新动作块平滑衔接。</li>
+              <li><strong>图像增强：</strong>实现在线图像增强，每次从亮度、对比度、饱和度、色相、锐度和轻微仿射中随机选取 3 种，提升模型泛化能力。</li>
+              <li><strong>异步推理：</strong>接入 PI0.5 policy server / client 与动作队列，通过异步 Chunk 推理配合 20 Hz Actor，解耦模型推理与机器人控制。</li>
+            </ul>
+            <div class="video-placeholder" aria-label="双臂机器人演示视频待添加">
+              <span class="play">▶</span><div><strong>双臂遥操数据采集与 PI0.5 推理演示</strong><span>视频将在后续添加</span></div>
+            </div>
+          </div>
+
+          <div class="work-block separated">
+            <div class="work-title-row">
+              <h4>基于 SO-101 的多策略训练推理与 Triton 加速部署</h4>
+              <a href="https://github.com/JustinKe02/so101_lerobot" target="_blank" rel="noreferrer">GitHub ↗</a>
+            </div>
+            <ul class="detail-list">
+              <li><strong>模型训练：</strong>基于 40 个 Episode、17,960 帧、30 Hz 双相机示教数据，完成 ACT 全参数训练、PI0.5 与 GR00T 策略微调。</li>
+              <li><strong>多策略推理：</strong>完成 ACT、PI0.5 与 GR00T N1.7 模型加载，统一双相机输入、关节状态及动作空间处理流程。</li>
+              <li><strong>Triton 优化：</strong>将 PI0.5 推理后端从 PyTorch 迁移至 BF16 Triton，完成模型导出与输出一致性验证；平均推理延迟由 <strong>136–138 ms</strong> 降至 <strong>45–49 ms</strong>，获得近 <strong>3 倍</strong>加速。</li>
+            </ul>
+            <div class="video-placeholder" aria-label="SO-101 演示视频待添加">
+              <span class="play">▶</span><div><strong>SO-101 多策略推理演示</strong><span>视频将在后续添加</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="projects">
+      <h2 class="section-title" id="projects">项目经历</h2>
+      <article class="project-card">
+        <div class="experience-heading">
+          <div>
+            <h3>二维材料显微图像实时识别系统</h3>
+            <p>图像算法与部署</p>
+          </div>
+          <time>2025.10 — 2026.03</time>
+        </div>
+        <a class="inline-link" href="https://github.com/JustinKe02/2DMatScope" target="_blank" rel="noreferrer">github.com/JustinKe02/2DMatScope ↗</a>
+        <ul class="detail-list">
+          <li><strong>软硬件集成：</strong>基于 ctypes 封装 Toupcam SDK，完成相机枚举、分辨率切换、曝光 / 增益及白平衡控制；采用 UI 主线程、抓帧线程与推理 QThread 解耦架构，并异步加载模型权重。</li>
+          <li><strong>模型设计：</strong>设计四类轻量级语义分割网络 RepELA-Net（2.12M），融合 RepConv 部署重参数化、ELA 多尺度线性注意力、DW-MFF 与边界增强；无预训练条件下，3-seed 测试集 mIoU 为 <strong>81.25% ± 3.30%</strong>，单次最高 <strong>84.64%</strong>。</li>
+          <li><strong>成果产出：</strong>以第一作者发表 SCI 三区论文 1 篇（IF 5.2），2026.07 录用。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="skills">
+      <h2 class="section-title" id="skills">专业技能</h2>
+      <div class="skills-list">
+        <div class="skill-row"><h3>编程与工程</h3><p>Python、Linux、CMake、Git；多线程 / 异步任务、UDP / ZMQ 通信</p></div>
+        <div class="skill-row"><h3>训练与 VLA</h3><p>PyTorch、FSDP、DeepSpeed、LeRobot、PI0.5、RTC、GR00T；双臂 VR 遥操作数采、多卡分布式训练、全参数微调、机器人策略异步推理</p></div>
+        <div class="skill-row"><h3>视觉与部署</h3><p>ONNX / TensorRT、NVIDIA Orin；相机 SDK 二次开发</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="publications">
+      <h2 class="section-title" id="publications">论文与竞赛</h2>
+      <div class="publication-list">
+        <article class="publication">
+          <span class="year">2026.07</span>
+          <div>
+            <h3>A lightweight model for rapid microscope-side layer identification of two-dimensional materials</h3>
+            <p>第一作者 · <em>Materials Science in Semiconductor Processing</em> · SCI 三区</p>
+            <a href="https://doi.org/10.1016/j.mssp.2026.110988" target="_blank" rel="noreferrer">DOI: 10.1016/j.mssp.2026.110988 ↗</a>
+          </div>
+        </article>
+        <article class="publication">
+          <span class="year">2026.03</span>
+          <div>
+            <h3>Investigation of thermal conductivity of monolayer MoS₂ supported on PDMS substrates with varying adhesion under different tensile strains</h3>
+            <p>第二作者 · <em>Journal of Applied Physics</em> · SCI 三区</p>
+            <a href="https://doi.org/10.1063/5.0320455" target="_blank" rel="noreferrer">DOI: 10.1063/5.0320455 ↗</a>
+          </div>
+        </article>
+      </div>
+      <div class="competition"><span>竞赛</span><p>“华为杯”研究生数学建模竞赛、过程装备实践创新赛 · 国家级二等奖</p></div>
+    </section>
+  </main>
+
+  <footer><div>© 2026 Tang Ke</div></footer>
+</body>
+</html>
