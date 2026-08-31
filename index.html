@@ -30,6 +30,7 @@
         <p class="identity">东南大学 · 机械工程硕士（保研）</p>
         <p class="research">研究方向：具身智能、VLA 策略训练与机器人推理部署</p>
         <div class="profile-links" aria-label="联系方式">
+          <a href="tel:18381552411">电话：183 8155 2411</a>
           <a href="mailto:tangknet02@163.com">tangknet02@163.com</a>
           <a href="https://github.com/JustinKe02" target="_blank" rel="noreferrer">github.com/JustinKe02 ↗</a>
         </div>
@@ -80,8 +81,21 @@
               <li><strong>推理架构：</strong>将模型部署于 4090 服务器端，以双臂末端位置与姿态作为模型交互信息。机器人端发送观测并接收模型输出，通过 IK 与 WBC 将末端目标解算为各关节控制指令，实现 Action Chunk 异步执行。</li>
               <li><strong>推理优化：</strong>实现 RTC 动作融合、推理延迟补偿和过期动作丢弃，并结合 Torch Compile / Triton 优化，将模型延迟从 <strong>131.18 ms</strong> 降至 <strong>81.79 ms</strong>，降低 <strong>49.39 ms</strong>。</li>
             </ul>
-            <div class="video-placeholder" aria-label="SRC5000 演示视频待添加">
-              <span class="play">▶</span><div><strong>SRC5000 双臂机器人训练与推理演示</strong><span>视频将在后续添加</span></div>
+            <div class="video-grid video-grid-two" aria-label="SRC5000 双臂机器人演示视频">
+              <figure class="video-card">
+                <div class="video-player">
+                  <video controls playsinline preload="none" poster="./posters/xiangong-pi05-full-training.jpg" data-prefix="xiangong-pi05-full-training" data-parts="15"></video>
+                  <button class="video-load" type="button"><b>▶</b><span>加载并播放</span></button>
+                </div>
+                <figcaption><strong>PI0.5 全量训练</strong><span>SRC5000 双臂真机演示</span></figcaption>
+              </figure>
+              <figure class="video-card">
+                <div class="video-player">
+                  <video controls playsinline preload="none" poster="./posters/xiangong-groot17-dual-arm.jpg" data-prefix="xiangong-groot17-dual-arm" data-parts="4"></video>
+                  <button class="video-load" type="button"><b>▶</b><span>加载并播放</span></button>
+                </div>
+                <figcaption><strong>GR00T N1.7</strong><span>双臂模式真机演示</span></figcaption>
+              </figure>
             </div>
           </div>
         </article>
@@ -102,8 +116,21 @@
               <li><strong>图像增强：</strong>实现在线图像增强，每次从亮度、对比度、饱和度、色相、锐度和轻微仿射中随机选取 3 种，提升模型泛化能力。</li>
               <li><strong>异步推理：</strong>接入 PI0.5 policy server / client 与动作队列，通过异步 Chunk 推理配合 20 Hz Actor，解耦模型推理与机器人控制。</li>
             </ul>
-            <div class="video-placeholder" aria-label="双臂机器人演示视频待添加">
-              <span class="play">▶</span><div><strong>双臂遥操数据采集与 PI0.5 推理演示</strong><span>视频将在后续添加</span></div>
+            <div class="video-grid video-grid-two" aria-label="金旺双臂机器人 PI0.5 对比视频">
+              <figure class="video-card">
+                <div class="video-player">
+                  <video controls playsinline preload="none" poster="./posters/jinwang-pi05-100-no-rtc.jpg" data-prefix="jinwang-pi05-100-no-rtc" data-parts="4"></video>
+                  <button class="video-load" type="button"><b>▶</b><span>加载并播放</span></button>
+                </div>
+                <figcaption><strong>PI0.5 · 100 条数据</strong><span>无 RTC 训练策略</span></figcaption>
+              </figure>
+              <figure class="video-card">
+                <div class="video-player">
+                  <video controls playsinline preload="none" poster="./posters/jinwang-pi05-172-rtc.jpg" data-prefix="jinwang-pi05-172-rtc" data-parts="4"></video>
+                  <button class="video-load" type="button"><b>▶</b><span>加载并播放</span></button>
+                </div>
+                <figcaption><strong>PI0.5 · 172 条数据</strong><span>Training-RTC 策略</span></figcaption>
+              </figure>
             </div>
           </div>
 
@@ -117,8 +144,28 @@
               <li><strong>多策略推理：</strong>完成 ACT、PI0.5 与 GR00T N1.7 模型加载，统一双相机输入、关节状态及动作空间处理流程。</li>
               <li><strong>Triton 优化：</strong>将 PI0.5 推理后端从 PyTorch 迁移至 BF16 Triton，完成模型导出与输出一致性验证；平均推理延迟由 <strong>136–138 ms</strong> 降至 <strong>45–49 ms</strong>，获得近 <strong>3 倍</strong>加速。</li>
             </ul>
-            <div class="video-placeholder" aria-label="SO-101 演示视频待添加">
-              <span class="play">▶</span><div><strong>SO-101 多策略推理演示</strong><span>视频将在后续添加</span></div>
+            <div class="video-grid video-grid-three" aria-label="SO-101 多策略推理演示">
+              <figure class="video-card">
+                <div class="video-player">
+                  <video controls playsinline preload="none" poster="./posters/so101-act.jpg" data-prefix="so101-act" data-parts="3"></video>
+                  <button class="video-load" type="button"><b>▶</b><span>加载并播放</span></button>
+                </div>
+                <figcaption><strong>ACT</strong><span>基线策略推理</span></figcaption>
+              </figure>
+              <figure class="video-card">
+                <div class="video-player">
+                  <video controls playsinline preload="none" poster="./posters/so101-groot17.jpg" data-prefix="so101-groot17" data-parts="4"></video>
+                  <button class="video-load" type="button"><b>▶</b><span>加载并播放</span></button>
+                </div>
+                <figcaption><strong>GR00T N1.7</strong><span>策略微调与推理</span></figcaption>
+              </figure>
+              <figure class="video-card">
+                <div class="video-player">
+                  <video controls playsinline preload="none" poster="./posters/so101-pi05-triton.jpg" data-prefix="so101-pi05-triton" data-parts="5"></video>
+                  <button class="video-load" type="button"><b>▶</b><span>加载并播放</span></button>
+                </div>
+                <figcaption><strong>PI0.5 + Triton</strong><span>加速推理演示</span></figcaption>
+              </figure>
             </div>
           </div>
         </article>
@@ -178,5 +225,6 @@
   </main>
 
   <footer><div>© 2026 Tang Ke</div></footer>
+  <script src="./video-loader.js"></script>
 </body>
 </html>
