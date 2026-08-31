@@ -292,7 +292,7 @@ td small { display: inline; margin-left: 7px; }
   transition: border-color .18s ease;
 }
 .project-card .video-card video {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   object-fit: contain;
 }
 .inline-link { margin-top: 12px; }
