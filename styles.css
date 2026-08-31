@@ -355,3 +355,135 @@ td small { display: inline; margin-left: 7px; }
     margin-left: auto;
   }
 }
+
+/* AcademicPages-inspired desktop sidebar and content-column structure. */
+.site-header {
+  position: fixed;
+  background: rgba(255, 255, 255, .98);
+}
+.header-inner {
+  width: min(calc(100% - 48px), 75rem);
+}
+.site-shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 64px;
+  width: min(calc(100% - 48px), 75rem);
+  margin: 0 auto;
+  padding: 92px 0 84px;
+}
+.site-shell .profile {
+  position: sticky;
+  top: 82px;
+  display: block;
+  align-self: start;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: left;
+}
+.site-shell .profile-avatar {
+  display: block;
+  width: 172px;
+  height: 172px;
+  margin: 0 0 18px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+.site-shell .profile h1 {
+  margin: 0 0 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 650;
+  line-height: 1.25;
+}
+.site-shell .identity,
+.site-shell .research {
+  margin: 0 0 8px;
+  color: #59666e;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.site-shell .profile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  margin-top: 16px;
+  font-size: 14px;
+}
+.site-shell .page {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+.site-shell .page > section {
+  margin-top: 68px;
+}
+.site-shell .page > section:first-child {
+  margin-top: 0;
+}
+.site-shell .section-title {
+  margin-bottom: 28px;
+  color: #263f4d;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.site-shell .experience,
+.site-shell .project-card,
+.site-shell .publication {
+  border-left-color: #d6dfe4;
+}
+
+@media (max-width: 860px) {
+  .header-inner,
+  .site-shell,
+  footer div {
+    width: min(calc(100% - 32px), 42rem);
+  }
+  .site-shell {
+    grid-template-columns: 1fr;
+    gap: 46px;
+    padding-top: 84px;
+  }
+  .site-shell .profile {
+    position: static;
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    column-gap: 22px;
+  }
+  .site-shell .profile-avatar {
+    grid-row: span 2;
+    width: 112px;
+    height: 112px;
+    margin: 0;
+  }
+  .site-shell .profile-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-inner,
+  .site-shell,
+  footer div {
+    width: min(calc(100% - 28px), 42rem);
+  }
+  .site-shell .profile {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .site-shell .profile-avatar {
+    width: 116px;
+    height: 116px;
+    margin: 0 auto 16px;
+  }
+  .site-shell .profile-links {
+    justify-content: center;
+  }
+}
