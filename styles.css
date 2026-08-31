@@ -291,8 +291,13 @@ td small { display: inline; margin-left: 7px; }
   border-left: 2px solid #c2ced4;
   transition: border-color .18s ease;
 }
-.project-card .video-card video {
+.project-card .video-player {
   aspect-ratio: 4 / 3;
+}
+.project-card .video-card video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
   object-fit: contain;
 }
 .inline-link { margin-top: 12px; }
